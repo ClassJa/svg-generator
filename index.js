@@ -6,7 +6,7 @@ const fs = require('fs')
 const questions = [
     {
         type: 'input',
-        message: 'What 3 letters text would you like your logo to have?',
+        message: 'What 3 letters would you like your logo to have?',
         name: 'logo'
     },
     {
@@ -29,12 +29,18 @@ const questions = [
     }
 ]
 
-
-// 
 function init() {
     inquirer.prompt(questions)
-    .then(fs.writeFile('logo.svg', questions), console.log('Generated logo.svg')) 
-    .catch(new Error('Unable to generate the svg logo, try again.'))
+    .then((answers) => {
+        console.log(answers)
+        fs.writeFile('logo.svg', answers, console.log('Generated logo.svg'))
+    })
+    .catch(() => {throw new Error('Unable to generate the svg logo, try again.')})
 }
 
+// throw the new error or return it 
+// throw stops the program, return new error continues the logic
 init()
+
+
+  // .then(fs.writeFile('logo.svg', questions, err => err ? ), console.log('Generated logo.svg')) 
