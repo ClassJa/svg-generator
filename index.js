@@ -6,13 +6,13 @@ const fs = require('fs')
 const questions = [
     {
         type: 'input',
-        message: 'What 3 letter text would you like your logo to have?',
+        message: 'What 3 letters text would you like your logo to have?',
         name: 'logo'
     },
     {
         type: 'input',
         message: 'What color would you like the text of the logo to be?',
-        choices: [colors.color], 
+        // choices: [colors.color], 
         // how to get the user input to directly form a color by calling it through a variable
         name: 'textColor'
     },
@@ -33,6 +33,8 @@ const questions = [
 // 
 function init() {
     inquirer.prompt(questions)
-    .then(fs.writeFile('logo.svg', questions))
-    .catch()
+    .then(fs.writeFile('logo.svg', questions), console.log('Generated logo.svg')) 
+    .catch(new Error('Unable to generate the svg logo, try again.'))
 }
+
+init()
