@@ -33,9 +33,12 @@ function init() {
     inquirer.prompt(questions)
     .then((answers) => {
         console.log(answers)
-        fs.writeFile('logo.svg', answers, console.log('Generated logo.svg'))
+        fs.writeFile('logo.svg', JSON.stringify(answers), () => {console.log('Generated logo.svg')})
     })
-    .catch(() => {throw new Error('Unable to generate the svg logo, try again.')})
+    .catch((err) => {
+        console.error(err)
+        throw(new Error('Unable to generate the svg logo, try again.'))
+    })
 }
 
 // throw the new error or return it 
