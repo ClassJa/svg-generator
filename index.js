@@ -1,6 +1,7 @@
 const inquirer = require('inquirer')
 const colors = require('colors')
 const fs = require('fs')
+const shapes = require('./shapeExamples')
 
 // name the array of objects 'questions so you can call it in the init function'
 const questions = [
@@ -63,3 +64,6 @@ init()
 
 
   // .then(fs.writeFile('logo.svg', questions, err => err ? ), console.log('Generated logo.svg')) 
+
+
+  module.exports(questions)
