@@ -36,14 +36,20 @@ const questions = [
 async function init() {
     inquirer.prompt(questions)
     .then((answers) => {
+        const inputShape = answers.shape 
+        const shapeObject = JSON.parse(inputShape)
         console.log(answers)
-        if (answers.shape === 'circle') {
+        if (inputShape === 'circle') {
             const circle = new Circle(colors[answers.shapeColor], answers.shape, answers.logo)
-        } else if (answers.shape === 'square') {
+            circle.render()
+        } else if (inputShape === 'square') {
             const square = new Square(colors[answers.shapeColor], answers.shape, answers.logo)
+            square.render()
         } else {
             const triangle = new Triangle(colors[answers.shapeColor], answers.shape, answers.logo)
+            triangle.render()
         }
+        fs.writeFile('logo.svg', JSON.stringify(answers), () => {shapeObject.render(), console.log('Generated logo.svg')})
         fs.writeFile('logo.svg', JSON.stringify(answers), () => {console.log('Generated logo.svg')})
     })
     .catch((err) => {
