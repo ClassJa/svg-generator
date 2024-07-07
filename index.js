@@ -2,7 +2,7 @@ const inquirer = require('inquirer')
 const colors = require('colors')
 const fs = require('fs')
 // const shapes = require('./shapeExamples')
-const { Shape, Circle, Square, Triangle } = require('./shapeExamples/shape')
+const { Shape, Circle, Square, Triangle } = require('./lib/shape')
 
 
 // name the array of objects 'questions so you can call it in the init function'
