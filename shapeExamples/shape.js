@@ -18,6 +18,22 @@ class Shape {
   }
 }
 
+class SVG {
+  constructor(shape, text) {
+    this.shape = shape
+    this.text = text
+  }
+  render() {
+
+  }
+  setText() {
+
+  }
+  setShape() {
+
+  }
+}
+
 
 class Circle extends Shape {
   constructor(shapeColor, shape, logo) {

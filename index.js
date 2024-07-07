@@ -50,7 +50,7 @@ async function init() {
             triangle.render()
         }
         fs.writeFile('logo.svg', JSON.stringify(answers), () => {shapeObject.render(), console.log('Generated logo.svg')})
-        fs.writeFile('logo.svg', JSON.stringify(answers), () => {console.log('Generated logo.svg')})
+        // fs.writeFile('logo.svg', JSON.stringify(answers), () => {console.log('Generated logo.svg')})
     })
     .catch((err) => {
         console.error(err)
