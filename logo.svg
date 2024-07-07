@@ -2,5 +2,5 @@
       <rect x="60" y="10" rx="10" ry="10" width="300" height="200" fill="function builder() {
     return applyStyle.apply(builder, arguments);
   }"/>
-      <text x="175" y="125" font-size="60" text-anchor="middle" fill="pink">abc</text>
+      <text x="175" y="125" font-size="60" text-anchor="middle" fill="abc">square</text>
   </svg>
