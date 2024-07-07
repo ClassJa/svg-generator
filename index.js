@@ -65,12 +65,15 @@ async function init() {
         if (inputShape === 'circle') {
             const generatedShape = new Circle(colors[answers.shapeColor], answers.shape, answers.logo)
             generatedShape.render()
+            return generatedShape
         } else if (inputShape === 'square') {
             const generatedShape = new Square(colors[answers.shapeColor], answers.shape, answers.logo)
             generatedShape.render()
+            return generatedShape
         } else {
             const generatedShape = new Triangle(colors[answers.shapeColor], answers.shape, answers.logo)
             generatedShape.render()
+            return generatedShape
         }
         // fs.writeFile('logo.svg', JSON.stringify(answers), () => {console.log('Generated logo.svg')})
         fs.writeFile('logo.svg', generatedShape.render(), () => {console.log('Generated logo.svg')})
