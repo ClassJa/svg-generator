@@ -63,17 +63,17 @@ async function init() {
         // const shapeObject = JSON.parse(inputShape)
         console.log(answers)
         if (inputShape === 'circle') {
-            const generatedShape = new Circle(colors[answers.shapeColor], answers.shape, answers.logo, colors[answers.textColor])
+            const generatedShape = new Circle(answers.shapeColor, answers.shape, answers.logo, answers.textColor)
             // generatedShape.render()
             fs.writeFile('logo.svg', generatedShape.render(), () => {console.log('Generated logo.svg')})
             // return generatedShape
         } else if (inputShape === 'square') {
-            const generatedShape = new Square(colors[answers.shapeColor], answers.shape, answers.logo, colors[answers.textColor])
+            const generatedShape = new Square(answers.shapeColor, answers.shape, answers.logo, answers.textColor)
             // generatedShape.render()
             fs.writeFile('logo.svg', generatedShape.render(), () => {console.log('Generated logo.svg')})
             // return generatedShape
         } else {
-            const generatedShape = new Triangle(colors[answers.shapeColor], answers.shape, answers.logo, colors[answers.textColor])
+            const generatedShape = new Triangle(answers.shapeColor, answers.shape, answers.logo, answers.textColor)
             // generatedShape.render()
             fs.writeFile('logo.svg', generatedShape.render(), () => {console.log('Generated logo.svg')})
             // return generatedShape
