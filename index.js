@@ -5,6 +5,29 @@ const fs = require('fs')
 const { Shape, Circle, Square, Triangle } = require('./lib/shape')
 
 
+
+class SVG {
+    constructor(shape, text, textColor) {
+      this.shape = shape
+      this.text = text
+      this.textColor = textColor
+    }
+    render() {
+      return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${this.shape}${this.text}${this.textColor}</svg>`;
+    //   need guidance here
+    }
+    setText(text, color) {
+        this.text = text
+        this.color = color
+  
+    }
+    setShape(shape) {
+        this.shape = shape
+  
+    }
+  }
+
+
 // name the array of objects 'questions so you can call it in the init function'
 const questions = [
     {
@@ -37,20 +60,20 @@ async function init() {
     inquirer.prompt(questions)
     .then((answers) => {
         const inputShape = answers.shape 
-        const shapeObject = JSON.parse(inputShape)
+        // const shapeObject = JSON.parse(inputShape)
         console.log(answers)
         if (inputShape === 'circle') {
-            const circle = new Circle(colors[answers.shapeColor], answers.shape, answers.logo)
-            circle.render()
+            const generatedShape = new Circle(colors[answers.shapeColor], answers.shape, answers.logo)
+            generatedShape.render()
         } else if (inputShape === 'square') {
-            const square = new Square(colors[answers.shapeColor], answers.shape, answers.logo)
-            square.render()
+            const generatedShape = new Square(colors[answers.shapeColor], answers.shape, answers.logo)
+            generatedShape.render()
         } else {
-            const triangle = new Triangle(colors[answers.shapeColor], answers.shape, answers.logo)
-            triangle.render()
+            const generatedShape = new Triangle(colors[answers.shapeColor], answers.shape, answers.logo)
+            generatedShape.render()
         }
-        fs.writeFile('logo.svg', JSON.stringify(answers), () => {shapeObject.render(), console.log('Generated logo.svg')})
         // fs.writeFile('logo.svg', JSON.stringify(answers), () => {console.log('Generated logo.svg')})
+        fs.writeFile('logo.svg', generatedShape.render(), () => {console.log('Generated logo.svg')})
     })
     .catch((err) => {
         console.error(err)
