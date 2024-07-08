@@ -1,34 +1,32 @@
 const inquirer = require('inquirer')
-const colors = require('colors')
+// const colors = require('colors')
 const fs = require('fs')
 // const shapes = require('./shapeExamples')
 const { Shape, Circle, Square, Triangle } = require('./lib/shape')
 
 
 
-class SVG {
-    constructor(shape, text, textColor) {
-      this.shape = shape
-      this.text = text
-      this.textColor = textColor
-    }
-    render() {
-      return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${this.shape}${this.text}${this.textColor}</svg>`;
-    //   need guidance here
-    }
-    setText(text, color) {
-        this.text = text
-        this.color = color
+// class SVG {
+//     constructor(shape, text, textColor) {
+//       this.shape = shape
+//       this.text = text
+//       this.textColor = textColor
+//     }
+//     render() {
+//       return `<svg version="1.1" width="300" height="200" xmlns="http://www.w3.org/2000/svg">${this.shape}${this.text}${this.textColor}</svg>`;
+//     }
+//     setText(text, color) {
+//         this.text = text
+//         this.color = color
   
-    }
-    setShape(shape) {
-        this.shape = shape
+//     }
+//     setShape(shape) {
+//         this.shape = shape
   
-    }
-  }
+//     }
+//   }
 
-
-// name the array of objects 'questions so you can call it in the init function'
+// array of questions that will be asked of the user
 const questions = [
     {
         type: 'input',
@@ -38,10 +36,7 @@ const questions = [
     {
         type: 'input',
         message: 'What color would you like the text of the logo to be?',
-        // choices: [colors.color], 
-        // how to get the user input to directly form a color by calling it through a variable
         name: 'textColor'
-        // fill 
     },
     {
         type: 'list',
@@ -63,17 +58,17 @@ async function init() {
         // const shapeObject = JSON.parse(inputShape)
         console.log(answers)
         if (inputShape === 'circle') {
-            const generatedShape = new Circle(answers.shapeColor, answers.shape, answers.logo, answers.textColor)
+            const generatedShape = new Circle(answers.shapeColor, answers.logo, answers.textColor)
             // generatedShape.render()
             fs.writeFile('logo.svg', generatedShape.render(), () => {console.log('Generated logo.svg')})
             // return generatedShape
         } else if (inputShape === 'square') {
-            const generatedShape = new Square(answers.shapeColor, answers.shape, answers.logo, answers.textColor)
+            const generatedShape = new Square(answers.shapeColor, answers.logo, answers.textColor)
             // generatedShape.render()
             fs.writeFile('logo.svg', generatedShape.render(), () => {console.log('Generated logo.svg')})
             // return generatedShape
         } else {
-            const generatedShape = new Triangle(answers.shapeColor, answers.shape, answers.logo, answers.textColor)
+            const generatedShape = new Triangle(answers.shapeColor, answers.logo, answers.textColor)
             // generatedShape.render()
             fs.writeFile('logo.svg', generatedShape.render(), () => {console.log('Generated logo.svg')})
             // return generatedShape
