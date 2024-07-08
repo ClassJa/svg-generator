@@ -6,7 +6,8 @@ const { Shape, Circle, Square, Triangle } = require('./lib/shape')
 // array of questions that will be asked of the user
 const questions = [
     {
-        type: 'input',
+        type: 'maxlength-input',
+        maxLength: 3,
         message: 'What 3 letters would you like your logo to have?',
         name: 'logo'
     },
