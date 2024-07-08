@@ -6,10 +6,15 @@ const { Shape, Circle, Square, Triangle } = require('./lib/shape')
 // array of questions that will be asked of the user
 const questions = [
     {
-        type: 'maxlength-input',
-        maxLength: 3,
         message: 'What 3 letters would you like your logo to have?',
-        name: 'logo'
+        name: 'logo',
+        type: 'input',
+        validate: async (input) => {
+            if(input.length > 3) {
+                throw Error("Must be 3 characters or less. Remove characters")
+            }
+            return
+        }
     },
     {
         type: 'input',
