@@ -10,10 +10,9 @@ const questions = [
         name: 'logo',
         type: 'input',
         validate: async (input) => {
-            if(input.length > 3) {
-                throw Error("Must be 3 characters or less. Remove characters")
+            if (input.length > 3) {
+                return 'Must be 3 characters or less. Remove characters'
             }
-            return
         }
     },
     {
