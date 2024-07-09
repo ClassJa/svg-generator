@@ -9,10 +9,8 @@ const questions = [
         message: 'What 3 letters would you like your logo to have?',
         name: 'logo',
         type: 'input',
-        validate: async (input) => {
-            if (input.length > 3) {
-                return 'Must be 3 characters or less. Remove characters'
-            }
+        validate: (input) => {
+            input.length <= 3 || 'Must be 3 characters or less. Remove characters'
         }
     },
     {
