@@ -6,12 +6,12 @@ const { Shape, Circle, Square, Triangle } = require('./lib/shape')
 // array of questions that will be asked of the user
 const questions = [
     {
-        message: 'What 3 letters would you like your logo to have?',
         name: 'logo',
         type: 'input',
-        validate: (input) => {
-            input.length <= 3 || 'Must be 3 characters or less. Remove characters'
-        }
+        message: 'What 3 letters would you like your logo to have?',
+        validate: (logoLetters) => {
+            return logoLetters.length <= 3 || 'Must be 3 characters or less. Remove characters'
+        },
     },
     {
         type: 'input',
@@ -31,7 +31,7 @@ const questions = [
     }
 ]
 
-async function init() {
+function init() {
     inquirer.prompt(questions)
     .then((answers) => {
         const inputShape = answers.shape 
