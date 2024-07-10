@@ -1,7 +1,7 @@
 # svg-generator
 
 ## Description 
-This project utilizes javascript and tools like node to dynamically create and display a readme based on users' inputs. This app offers full autonomy to the user, allowing them to input as much or as little detail about their project as they wish, by prompting the user by way of the inquirer package, and writing the input to a file using the javascript's in-built fs package.
+This project utilizes javascript and tools like node to dynamically create and display a svg logo based on users' inputs. This app offers full autonomy to the user, allowing them to input detail about their desired logo that must be of type: square, circle, or triangle. The user is able to input these details through various prompting made possible by the inquirer package.
 
 ## Usage
 
