@@ -1,4 +1,4 @@
-const {Circle, Square, Triangle}  = require('./shape')
+const {Circle, Square, Triangle}  = require('../lib/shape')
 
 describe('circle-render', () => {
     it('should render a green circle with pink text that reads "ABC" in the logo', () => {
@@ -10,9 +10,9 @@ describe('circle-render', () => {
 )
 
 describe('square-render', () => {
-    it('should render a blue square with grey text that reads "DEF" in the logo', () => {
-        const expectSquareSVG = `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg"> <rect x="60" y="10" rx="10" ry="10" width="300" height="200" fill="blue"/> <text x="175" y="125" font-size="60" text-anchor="middle" fill="grey">DEF</text> </svg>`
-        const squareSVG = new Square('blue', 'DEF', 'grey')
+    it('should render a blue square with grey text that reads "ABC" in the logo', () => {
+        const expectSquareSVG = `<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg"> <rect x="60" y="10" rx="10" ry="10" width="300" height="200" fill="blue"/> <text x="175" y="125" font-size="60" text-anchor="middle" fill="grey">ABC</text> </svg>`
+        const squareSVG = new Square('blue', 'ABC', 'grey')
     expect(squareSVG.render()).toEqual(expectSquareSVG)
     })
 })
