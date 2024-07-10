@@ -5,7 +5,6 @@ This project utilizes javascript and tools like node to dynamically create and d
 
 ## Usage
 
-Usage: 
 ![alt text](image.png)
 
 Link to demo: 
